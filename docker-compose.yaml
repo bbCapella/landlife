@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  web:
+    image: coopdev/landlife
+    build: .
+    ports:
+      - 8080:80
+    volumes:
+      - ./dist:/var/www/html

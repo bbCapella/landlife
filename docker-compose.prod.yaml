@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  web:
+    image: coopdev/landlife
+    networks:
+      - traefik-net
+    deploy:
+      labels:
+        traefik.port: 80
+        traefik.network: traefik-net
+        traefik.enable: 'true'
+        traefik.frontend.rule: 'Host:landlife.lousmarter.com'
+        traefik.frontend.entrypoints: http,https
+
+networks:
+  traefik-net:
+    external: true
